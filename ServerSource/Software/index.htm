@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Simple login</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var user,pass;
+        $("#submit").click(function(){
+          user=$("#user").val();
+          pass=$("#password").val();
+          $.post("http://localhost:3000/create",{user: user,password: pass}, function(data){
+			alert(data);
+            if(data==='done')
+              {
+                alert("login success");
+              }
+          });
+        });
+      });
+    </script>
+	<script>
+      $(document).ready(function(){
+        var user1;
+        $("#submit1").click(function(){
+          user1=$("#user1").val();
+          $.post("http://localhost:3000/search",{user1: user1}, function(data){
+            if(data==='done')
+              {
+                alert("login success");
+              }
+          });
+        });
+      });
+    </script>
+	<script>
+      $(document).ready(function(){
+        var user2,pass2;
+        $("#submit2").click(function(){
+          user2=$("#user2").val();
+          pass2=$("#password2").val();
+          $.post("http://localhost:3000/delete",{user2: user2,password2: pass2}, function(data){
+            if(data==='done')
+              {
+                alert("login success");
+              }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+  <div>
+    <h1>Add New User !</h1>
+    <input type="TEXT" id="user" size="40"><br>
+    <input type="password" id="password" size="40"><br>
+    <input type="button" id="submit" value="Submit">
+  </div>
+  <div>
+    <h1>Search Existing User</h1>
+    <input type="TEXT" id="user1" size="40"><br>
+    <input type="button" id="submit1" value="Submit">
+  </div>
+  
+  <div>
+    <h1>Delete User</h1>
+    <input type="TEXT" id="user2" size="40"><br>
+    <input type="password" id="password2" size="40"><br>
+    <input type="button" id="submit2" value="Submit">
+  </div>
+  </body>
+</html>
