@@ -4,12 +4,15 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
     <script>
       $(document).ready(function(){
+	  //var encodedData = window.btoa("Hello, world");
+	  //console.log("encoded Data >>"+encodedData);
+	  //var labelid = document.getElementById("labeltest");
+	  	
         var user,pass;
         $("#submit").click(function(){
           user=$("#user").val();
           pass=$("#password").val();
-          $.post("http://localhost:3000/create",{user: user,password: pass}, function(data){
-			alert(data);
+          $.post("http://localhost:3000/registration",{user: user,password: pass,phoneNumber: "99999999", email: "chamcham@cham.com",mac: "B0:66:49:22:33"}, function(data){
             if(data==='done')
               {
                 alert("login success");
@@ -54,6 +57,7 @@
     <input type="TEXT" id="user" size="40"><br>
     <input type="password" id="password" size="40"><br>
     <input type="button" id="submit" value="Submit">
+	<input type="label" id="labeltest"/>
   </div>
   <div>
     <h1>Search Existing User</h1>
